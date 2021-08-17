@@ -17,43 +17,63 @@ const Form = (props) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                name="activity"
-                placeholder="Enter Bucket List Trip"
-                onChange={handleChange}
-            />
-            <input
-                type="text"
-                name="location"
-                placeholder="Enter Location"
-                onChange={handleChange}
-            />
-            <input
-                type="text"
-                name="img"
-                placeholder="Enter URL of IMG to style"
-                onChange={handleChange}
-            />
-            <input
-                type="text"
-                name="keyInterests.adventure1"
-                placeholder="Enter Adventure"
-                onChange={handleChange}
-            />
-            <input
-                type="text"
-                name="keyInterests.adventure2"
-                placeholder="Enter Adventure"
-                onChange={handleChange}
-            />
-            <input
-                type="text"
-                name="keyInterests.adventure3"
-                placeholder="Enter Adventure"
-                onChange={handleChange}
-            />
-            <input type="submit" value={props.label}/>
+            <div>
+            <h2>Where To Next?</h2>
+                <input
+                    className="form-input"
+                    type="text"
+                    name="activity"
+                    placeholder="Enter Trip Title"
+                    onChange={handleChange}
+                />
+                <input
+                    className="form-input"
+                    type="text"
+                    name="location"
+                    placeholder="Enter Location"
+                    onChange={handleChange}
+                />
+                <input
+                    className="form-input"
+                    type="text"
+                    name="description"
+                    placeholder="Enter trip description"
+                    onChange={handleChange}
+                />
+            </div>
+            <div className="adventures">
+                <h2>What will we do?</h2>
+                <input
+                    className="form-input"
+                    type="text"
+                    name="keyInterests.adventure1"
+                    placeholder="Enter Adventure"
+                    onChange={handleChange}
+                />
+                <input
+                    className="form-input"
+                    type="text"
+                    name="keyInterests.adventure2"
+                    placeholder="Enter Adventure"
+                    onChange={handleChange}
+                />
+                <input
+                    className="form-input"
+                    type="text"
+                    name="keyInterests.adventure3"
+                    placeholder="Enter Adventure"
+                    onChange={handleChange}
+                />
+                </div>
+                <h4>Insert a Cover Photo for Trip</h4>
+                <input
+                    className="form-input"
+                    type="text"
+                    name="img"
+                    placeholder="Needs to be an img URL"
+                    onChange={handleChange}
+                />
+            <input className="create-button" type="submit" value={props.label}/>
         </form>
     );
 };
