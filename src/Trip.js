@@ -11,13 +11,13 @@ const Trip = (props) => {
                 <h3>Location: {locations.location}</h3>
                 <h3>Trip Planned for: {locations.travelGoal}</h3>
                 <div>Main Goals for this trip:
-                    <h3>{locations.keyInterests[0].adventure1}</h3>
-                    <h3>{locations.keyInterests[0].adventure2}</h3>
-                    <h3>{locations.keyInterests[0].adventure3}</h3>
+                    <h3>1. {locations.keyInterests[0].adventure1}</h3>
+                    <h3>2. {locations.keyInterests[0].adventure2}</h3>
+                    <h3>3. {locations.keyInterests[0].adventure3}</h3>
                 </div>
-                <h4>{locations.description}</h4>
+                <h4 className="description">Destination Summary: <br />{locations.description}</h4>
 
-                <button onClick={() => props.history.goBack()}>Back</button>
+                <button className="back-button" onClick={() => props.history.goBack()}>Back</button>
             </div>               
     );
 

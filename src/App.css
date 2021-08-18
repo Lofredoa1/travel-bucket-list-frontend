@@ -98,8 +98,22 @@ form {
   width: 75px;
 }
 
+.description {
+  margin: 0 50px 10px;
+}
+
 /* INDIVIDUAL TRIP */
 .img-trip {
   height: 45vh;
   width: 65vw;
+}
+
+.back-button {
+  margin-bottom: 20px;
+  padding: 5px;
+  font-size: 1.1em;
+  background-color: red;
+  color: white;
+  border-radius: .4em;
+  margin-left: 15px;
 }
