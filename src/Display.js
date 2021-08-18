@@ -1,6 +1,7 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import './App.css'
-import Trip from "./Trip";
+
 
 const Display = (props) => {
     const {locations} = props
@@ -11,8 +12,25 @@ const Display = (props) => {
         <div className="main">
             {locations.map((location) => (
             <div className="thumbnail">
-                <Trip locations={location}/>
-            </div>               
+                <div>
+                    <img className="img-thumbnail"src={location.img}/>
+                    <h1>{location.activity}</h1>
+                    <h3>{location.location}</h3>
+                    <h3>{location.travelGoal}</h3>          
+                </div> 
+                <div className="buttons">
+                    <Link to="/current-trip">
+                        <button className="moreInfo-button">More Info</button>
+                    </Link>
+                    <button className="edit-button" onClick={() => {
+                         props.selectLocation(location)
+                         props.history.push("/edit")
+                        }}>Edit</button>
+                    <button className="delete-button" onClick={() => {
+                        props.deleteLocation(location)
+                        }}>Delete</button>
+                </div>      
+            </div>        
             ))}
         </div>
     );

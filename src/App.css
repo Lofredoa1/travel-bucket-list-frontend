@@ -5,7 +5,8 @@
 .main {
   display: flex;
   flex-wrap: wrap;
-
+  justify-content: space-around;
+  margin: 0 100px;
 }
 
 .add-button {
@@ -19,15 +20,59 @@
 }
 
 .thumbnail {
-  width: 300px;
- border: 3px solid black; 
- margin: 10px;
+  width: 330px;
+  border: 3px solid black; 
+  margin: 15px;
+  padding: 5px;
+  transition: transform .2s; /* Animation */
+  background-color: white;
+}
 
+.thumbnail:hover {
+  color: red;
+  transform: scale(1.5); /* (150% zoom)*/
+}
+
+.zoom {
+  padding: 50px;
+  background-color: green;
+  transition: transform .2s; /* Animation */
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
 }
 
 
 .img-thumbnail {
-  width: 200px;
+  width: 300px;
+  height: 150px;
+}
+
+
+.moreInfo-button {
+  margin-bottom: 20px;
+  padding: 5px;
+  font-size: 1.1em;
+  background-color: lightblue;
+  border-radius: .4em;
+}
+.edit-button {
+  margin-bottom: 20px;
+  padding: 5px;
+  font-size: 1.1em;
+  background-color: orange;
+  border-radius: .4em;
+  margin-left: 15px;
+}
+
+.delete-button {
+  margin-bottom: 20px;
+  padding: 5px;
+  font-size: 1.1em;
+  background-color: red;
+  color: white;
+  border-radius: .4em;
+  margin-left: 15px;
 }
 
 /* FORM STYLING */
@@ -51,4 +96,10 @@ form {
   background-color: springgreen;
   border-radius: .4em;
   width: 75px;
+}
+
+/* INDIVIDUAL TRIP */
+.img-trip {
+  height: 45vh;
+  width: 65vw;
 }

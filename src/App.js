@@ -4,6 +4,7 @@ import { Route, Link, Switch } from "react-router-dom"
 //import components
 import Display from './Display';
 import Form from './Form';
+import Trip from './Trip';
 
 function App() {
 
@@ -15,8 +16,10 @@ function App() {
   const emptyLocation = {
     activity: "",
     location: "",
+    travelGoal: "",
+    description: "",
     img: "",
-    description: ""
+    keyInterests:[{adventure1: "", adventure2: "", adventure3: "" }] 
   };
 
   const [selectedLocation, setSelectedLocation] = useState(emptyLocation)
@@ -46,7 +49,7 @@ function App() {
 
   //Update existing
   const handleUpdate = (location) => {
-    fetch(url + "/locations/" + location.id, {
+    fetch(url + "/locations/" + location._id, {
       method: "put",
       headers: {
         "Content-Type": "application/json",
@@ -63,12 +66,13 @@ function App() {
 
   //Destroy route
   const deleteLocation = (location) => {
-    fetch(url + "/locations/" + location.id, {
+    fetch(url + "/locations/" + location._id, {
       method: "delete",
     }).then(() => {
       getLocations();
     })
   };
+
 
   return (
     <div className="App">
@@ -79,9 +83,10 @@ function App() {
       </Link>
       <main>
         <Switch>
-        <Route exact path="/" render={(rp) => <Display {...rp} locations={locations} selectLocation={selectLocation} deleteLocation={deleteLocation} />} />
-        <Route path="/create" render={(rp) => <Form {...rp} label="create" locations={emptyLocation} handleSubmit={handleCreate} />} />
-        <Route path="/edit" render={(rp) => <Form {...rp} label="update" locations={selectedLocation} handleSubmit={handleUpdate} />} />
+        <Route exact path="/" render={(rp) => <Display {...rp} locations={locations} selectLocation={selectLocation} deleteLocation={deleteLocation} updateLocation={handleUpdate}/>} />
+        <Route path="/create" render={(rp) => <Form {...rp} label="Create" locations={emptyLocation} handleSubmit={handleCreate} />} />
+        <Route path="/edit" render={(rp) => <Form {...rp} label="Update" locations={selectedLocation} handleSubmit={handleUpdate} />} />
+        <Route path="/current-trip" render={(rp) => <Trip {...rp} locations={selectedLocation} />} />
         </Switch>
       </main>
     </div>

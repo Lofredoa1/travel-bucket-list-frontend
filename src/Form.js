@@ -3,7 +3,7 @@ import React from "react-router-dom"
 import "./App.css"
 
 const Form = (props) => {
-    const [formData, setFormData] = useState(props.location)
+    const [formData, setFormData] = useState(props.locations)
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -13,6 +13,14 @@ const Form = (props) => {
 
     const handleChange = (event) => {
         setFormData({...formData, [event.target.name]: event.target.value})
+        console.log(formData)
+        console.log(event.target)
+    };
+
+    const handleChangeKI = (event) => {
+        setFormData({...formData, keyInterests: {...formData.keyInterests, [event.target.name]: event.target.value}})
+        console.log(formData)
+        console.log(event.target)
     };
 
     return (
@@ -25,6 +33,7 @@ const Form = (props) => {
                     name="activity"
                     placeholder="Enter Trip Title"
                     onChange={handleChange}
+                    value={formData.locations}
                 />
                 <input
                     className="form-input"
@@ -32,6 +41,7 @@ const Form = (props) => {
                     name="location"
                     placeholder="Enter Location"
                     onChange={handleChange}
+                    value={formData.locations}
                 />
                 <input
                     className="form-input"
@@ -39,6 +49,15 @@ const Form = (props) => {
                     name="description"
                     placeholder="Enter trip description"
                     onChange={handleChange}
+                    value={formData.locations}
+                />
+                <input
+                    className="form-input"
+                    type="text"
+                    name="travelGoal"
+                    placeholder="Travel Goal"
+                    onChange={handleChange}
+                    value={formData.locations}
                 />
             </div>
             <div className="adventures">
@@ -46,23 +65,26 @@ const Form = (props) => {
                 <input
                     className="form-input"
                     type="text"
-                    name="keyInterests.adventure1"
+                    name="adventure1"
                     placeholder="Enter Adventure"
-                    onChange={handleChange}
+                    onChange={handleChangeKI}
+                    value={formData.locations}
                 />
                 <input
                     className="form-input"
                     type="text"
-                    name="keyInterests.adventure2"
+                    name="adventure2"
                     placeholder="Enter Adventure"
                     onChange={handleChange}
+                    value={formData.locations}
                 />
                 <input
                     className="form-input"
                     type="text"
-                    name="keyInterests.adventure3"
+                    name="adventure3"
                     placeholder="Enter Adventure"
                     onChange={handleChange}
+                    value={formData.locations}
                 />
                 </div>
                 <h4>Insert a Cover Photo for Trip</h4>
@@ -72,6 +94,7 @@ const Form = (props) => {
                     name="img"
                     placeholder="Needs to be an img URL"
                     onChange={handleChange}
+                    value={formData.locations}
                 />
             <input className="create-button" type="submit" value={props.label}/>
         </form>
