@@ -20,7 +20,8 @@ const Display = (props) => {
                 </div> 
                 <div className="buttons">
                     <Link to="/current-trip">
-                        <button className="moreInfo-button">More Info</button>
+                        <button className="moreInfo-button" onClick={() => {
+                         props.selectLocation(location)}}>More Info</button>
                     </Link>
                     <button className="edit-button" onClick={() => {
                          props.selectLocation(location)
